@@ -1,0 +1,18 @@
+# Binary
+gator
+blog-aggregator
+
+# Config (contains DB credentials)
+~/.gatorconfig.json
+.gatorconfig.json
+
+# Go
+*.exe
+*.out
+tmp/
+
+# Editor
+.idea/
+*.swp
+*.swo
+.DS_Store
