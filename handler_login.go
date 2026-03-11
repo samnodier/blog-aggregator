@@ -8,7 +8,7 @@ import (
 
 func handlerLogin(s *state, cmd command) error {
 	ctx := context.Background()
-	if len(cmd.args) == 0 {
+	if len(cmd.args) == 0 || len(cmd.args) > 1 {
 		return errors.New("the login handler expects a single argument, the username")
 	}
 	username := cmd.args[0]
