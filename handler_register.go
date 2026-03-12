@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/samnodier/blog-aggregator/internal/database"
+	"github.com/samnodier/gator/internal/database"
 )
 
 func handlerRegister(s *state, cmd command) error {

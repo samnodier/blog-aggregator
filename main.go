@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
-	"github.com/samnodier/blog-aggregator/internal/config"
-	"github.com/samnodier/blog-aggregator/internal/database"
+	"github.com/samnodier/gator/internal/config"
+	"github.com/samnodier/gator/internal/database"
 	"os"
 )
 
@@ -57,6 +57,8 @@ func main() {
 	cmds.register("feeds", handlerFeeds)
 	cmds.register("follow", middlewareLoggedIn(handlerFollow))
 	cmds.register("following", middlewareLoggedIn(handlerFollowing))
+	cmds.register("unfollow", middlewareLoggedIn(handlerUnfollow))
+	cmds.register("browse", middlewareLoggedIn(handlerBrowse))
 
 	if len(os.Args) < 2 {
 		fmt.Println("error: not enough arguments provided")

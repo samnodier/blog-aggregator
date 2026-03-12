@@ -1,4 +1,4 @@
-module github.com/samnodier/blog-aggregator
+module github.com/samnodier/gator
 
 go 1.25.5
 
