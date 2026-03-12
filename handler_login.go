@@ -21,7 +21,6 @@ func handlerLogin(s *state, cmd command) error {
 	if err != nil {
 		return fmt.Errorf("error reading database: %w", err)
 	}
-	fmt.Printf("user %s was set successfully!\n", username)
-	fmt.Println(registeredUser)
+	fmt.Printf("user %s was set successfully!\n", registeredUser.Name)
 	return nil
 }

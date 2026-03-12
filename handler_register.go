@@ -33,7 +33,6 @@ func handlerRegister(s *state, cmd command) error {
 	if err != nil {
 		return fmt.Errorf("error setting current user: %w", err)
 	}
-	fmt.Printf("user %s, created successfully!\n", username)
-	fmt.Println(insertedUser)
+	fmt.Printf("user %s, created successfully!\n", insertedUser.Name)
 	return nil
 }

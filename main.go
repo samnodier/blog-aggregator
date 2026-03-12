@@ -14,15 +14,6 @@ type state struct {
 	cfg *config.Config
 }
 
-type command struct {
-	name string
-	args []string
-}
-
-type commands struct {
-	handlers map[string]func(*state, command) error
-}
-
 type RSSFeed struct {
 	Channel struct {
 		Title       string    `xml:"title"`
@@ -62,8 +53,10 @@ func main() {
 	cmds.register("reset", handlerReset)
 	cmds.register("users", handlerUsers)
 	cmds.register("agg", handlerAgg)
-	cmds.register("addfeed", handlerAddFeed)
+	cmds.register("addfeed", middlewareLoggedIn(handlerAddFeed))
 	cmds.register("feeds", handlerFeeds)
+	cmds.register("follow", middlewareLoggedIn(handlerFollow))
+	cmds.register("following", middlewareLoggedIn(handlerFollowing))
 
 	if len(os.Args) < 2 {
 		fmt.Println("error: not enough arguments provided")
