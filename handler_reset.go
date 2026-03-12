@@ -15,6 +15,6 @@ func handlerReset(s *state, cmd command) error {
 	if err != nil {
 		return fmt.Errorf("error deleting users table: %w", err)
 	}
-	fmt.Println("table was deleted successfully!")
+	fmt.Println("users were deleted successfully!")
 	return nil
 }

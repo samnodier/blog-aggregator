@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strings"
 )
 
 func handlerLogin(s *state, cmd command) error {
@@ -11,7 +12,7 @@ func handlerLogin(s *state, cmd command) error {
 	if len(cmd.args) == 0 || len(cmd.args) > 1 {
 		return errors.New("the login handler expects a single argument, the username")
 	}
-	username := cmd.args[0]
+	username := strings.ToLower(cmd.args[0])
 	err := s.cfg.SetUser(username)
 	if err != nil {
 		return fmt.Errorf("error writing user: %w", err)
